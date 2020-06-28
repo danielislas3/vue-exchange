@@ -14,12 +14,27 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr
+        class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
+        v-for="coin in assets"
+        :key="coin.id"
+      >
+        <td>
+          <img
+            :src="
+              `https://static.coincap.io/assets/icons/${coin.symbol.toLowerCase()}@2x.png`
+            "
+            :alt="coin.name"
+          />
+        </td>
+        <td>
+          <b>{{ coin.rank }}</b>
+        </td>
+        <td>{{ coin.name }}</td>
+        <td>{{ coin.priceUsd | dolar }}</td>
+        <td>{{ coin.marketCapUsd | dolar }}</td>
+        <td>{{ coin.changePercent24Hr | percent }}</td>
+
         <td></td>
         <td class="hidden sm:block"></td>
       </tr>
