@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      limit: 10,
+      limit: 15,
       assets: []
     };
   },

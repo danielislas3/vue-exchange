@@ -21,6 +21,7 @@
       >
         <td>
           <img
+            class="w-6 h-6"
             :src="
               `https://static.coincap.io/assets/icons/${coin.symbol.toLowerCase()}@2x.png`
             "
@@ -33,7 +34,7 @@
         <td>{{ coin.name }}</td>
         <td>{{ coin.priceUsd | dolar }}</td>
         <td>{{ coin.marketCapUsd | dolar }}</td>
-        <td>{{ coin.changePercent24Hr | percent }}</td>
+        <td :class="positiveColors(coin.changePercent24Hr)">{{ coin.changePercent24Hr | percent }}</td>
 
         <td></td>
         <td class="hidden sm:block"></td>
@@ -50,6 +51,11 @@ export default {
     assets: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    positiveColors(percentage) {
+      return percentage.includes("-") ? "text-red-600" : "text-green-600";
     }
   }
 };
