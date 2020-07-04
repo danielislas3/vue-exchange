@@ -21,7 +21,7 @@
       >
         <td>
           <img
-            class="w-6 h-6"
+            class="w-6 h-6 hover:underline text-green-600"
             :src="
               `https://static.coincap.io/assets/icons/${coin.symbol.toLowerCase()}@2x.png`
             "
@@ -31,7 +31,11 @@
         <td>
           <b>{{ coin.rank }}</b>
         </td>
-        <td>{{ coin.name }}</td>
+        <td>
+          <router-link :to="{ name: 'coin-detail', params: { id:coin.id } }">
+            {{ coin.name }}
+          </router-link>
+        </td>
         <td>{{ coin.priceUsd | dolar }}</td>
         <td>{{ coin.marketCapUsd | dolar }}</td>
         <td :class="positiveColors(coin.changePercent24Hr)">
