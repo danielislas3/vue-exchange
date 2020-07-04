@@ -34,7 +34,9 @@
         <td>{{ coin.name }}</td>
         <td>{{ coin.priceUsd | dolar }}</td>
         <td>{{ coin.marketCapUsd | dolar }}</td>
-        <td :class="positiveColors(coin.changePercent24Hr)">{{ coin.changePercent24Hr | percent }}</td>
+        <td :class="positiveColors(coin.changePercent24Hr)">
+          {{ coin.changePercent24Hr | percent }}
+        </td>
 
         <td></td>
         <td class="hidden sm:block"></td>
@@ -50,14 +52,14 @@ export default {
   props: {
     assets: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   methods: {
     positiveColors(percentage) {
       return percentage.includes("-") ? "text-red-600" : "text-green-600";
-    }
-  }
+    },
+  },
 };
 </script>
 

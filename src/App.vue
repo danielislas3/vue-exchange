@@ -1,8 +1,7 @@
 <template>
-  <main >
-    <VHeader/>
-    
-    <router-view class="container px-5 sm:px-20 py-20 flex justify-center"/>
+  <main>
+    <VHeader />
+    <router-view class="container px-5 sm:px-20 py-20 flex justify-center" />
   </main>
 </template>
 
@@ -11,7 +10,7 @@ import VHeader from "@/components/VHeader";
 export default {
   name: "App",
   components: {
-    VHeader,
+    VHeader
   }
 };
 </script>
